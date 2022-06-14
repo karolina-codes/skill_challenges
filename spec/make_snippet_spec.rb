@@ -7,4 +7,10 @@ RSpec.describe "make_snippet method" do
       expect(snippet).to eq "Today I went on a..."
     end 
   end
+  context "if string has <=5 words" do 
+    it "returns the string" do 
+      snippet = make_snippet("Today I cooked")
+      expect(snippet).to eq "Today I cooked"
+    end 
+  end
 end
