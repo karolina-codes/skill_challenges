@@ -35,5 +35,16 @@ describe DiaryEntry do
       result = diary_entry.reading_chunk(1, 5) 
       expect(result).to eq "Today I paired with Delphine"
     end 
+  end
+  context 'reading_chunk method' do
+    it 'if called multiple times it reads a further chunk of text until it has all been read' do
+      entry = DiaryEntry.new('Sunday', 'Today is really hot so I went and got some green juice. It was really good and I will probably get some next week as well.')
+      entry.reading_chunk(1, 4)
+      entry.reading_chunk(1, 4)
+      entry.reading_chunk(1, 4)
+      result = entry.reading_chunk(1, 4)
+      expect(result).to eq 'It was really good'
+    end 
   end 
+
 end 
